@@ -31,5 +31,10 @@ jobs:
         working-directory: Cloud_infra
         
       - name: Terraform Plan
-        run: terraform plan
+        run: |
+         terraform plan \
+          -var "frontend_ssh_key=${{ secrets.TF_SSH_KEY_PUB_FE }}" \
+          -var "backend_ssh_key=${{ secrets.TF_SSH_KEY_PUB_BE }}" \
+          -var "administrator_login=${{ secrets.TF_ADMIN_USERNAME }}" \
+          -var "administrator_login_password=${{ secrets.TF_ADMIN_PASSWORD }}"
         working-directory: Cloud_infra 
