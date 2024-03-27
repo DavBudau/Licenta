@@ -10,10 +10,10 @@ resource "azurerm_linux_virtual_machine" "pwp_vm_backend" {
     azurerm_network_interface.pwp_nic_backend.id,
   ]
 
-#   admin_ssh_key {
-#     username   = "azureuser"
-#     public_key = var.backend_ssh_key
-#   }
+   admin_ssh_key {
+     username   = "azureuser"
+     public_key = var.backend_ssh_key
+   }
 
   os_disk {
     caching              = "ReadWrite"
