@@ -1,0 +1,36 @@
+name: Terraform Destroy
+
+on:
+  push:
+   branches: pwp1_infra
+
+jobs:
+  terraform-workflow:
+    runs-on: ubuntu-latest
+    name: Terraform Workflow
+    env:
+      ARM_CLIENT_ID: ${{ secrets.TF_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.TF_CLIENT_SECRET }}
+      ARM_TENANT_ID: ${{ secrets.TF_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.TF_SUBSCRIPTION_ID }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.5.7
+
+      - name: Initialize Terraform
+        run: terraform init
+        working-directory: Cloud_infra 
+
+      - name: Terraform Destroy
+        run: |
+          terraform destroy -auto-approve \
+          -var "frontend_ssh_key=${{ secrets.TF_SSH_KEY_PUB_FE }}" \
+          -var "backend_ssh_key=${{ secrets.TF_SSH_KEY_PUB_BE }}" \
+          -var "administrator_login=${{ secrets.TF_ADMIN_USERNAME }}" \
+          -var "administrator_login_password=${{ secrets.TF_ADMIN_PASSWORD }}"
+        working-directory: Cloud_infra 
