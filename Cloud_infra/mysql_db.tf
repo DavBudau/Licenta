@@ -5,7 +5,7 @@ resource "azurerm_mysql_server" "pwp_server_mysql" {
   administrator_login          = var.administrator_login
   administrator_login_password = var.administrator_login_password
   version                      = "5.7"
-  sku_name                     = "B_Gen5_2"
+  sku_name                     = "B_Gen4_1"
   storage_mb                   = 5120
 
   auto_grow_enabled                 = false
@@ -30,3 +30,5 @@ resource "azurerm_mysql_firewall_rule" "pwp_server_firewall" {
   start_ip_address    = "0.0.0.0"
   end_ip_address      = "255.255.255.255"
 }
+
+
