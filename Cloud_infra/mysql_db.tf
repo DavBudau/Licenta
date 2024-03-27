@@ -1,4 +1,4 @@
-resource "azurerm_mysql_server" "pwp_server_mysql" {
+/*resource "azurerm_mysql_server" "pwp_server_mysql" {
   name                         = "pwp-server-mysql"
   location                     = data.azurerm_resource_group.pwp_rg.location
   resource_group_name          = data.azurerm_resource_group.pwp_rg.name
@@ -30,5 +30,5 @@ resource "azurerm_mysql_firewall_rule" "pwp_server_firewall" {
   start_ip_address    = "0.0.0.0"
   end_ip_address      = "255.255.255.255"
 }
-
+*/
 
