@@ -47,4 +47,4 @@ jobs:
            -var "backend_ssh_key=${{ secrets.TF_SSH_KEY_PUB_BE }}" \
            -var "administrator_login=${{ secrets.TF_ADMIN_USERNAME }}" \
            -var "administrator_login_password=${{ secrets.TF_ADMIN_PASSWORD }}"
-         working-directory: terraform
+        working-directory: Cloud_infra
