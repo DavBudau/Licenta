@@ -24,12 +24,12 @@ jobs:
 
       - name: Initialize Terraform
         run: terraform init
-        working-directory: terraform
+        working-directory: Cloud_infra
        
       - name: Terraform Validate
         run: terraform validate
-        working-directory: terraform
+        working-directory: Cloud_infra
         
       - name: Terraform Plan
         run: terraform plan
-        working-directory: terraform 
+        working-directory: Cloud_infra 
