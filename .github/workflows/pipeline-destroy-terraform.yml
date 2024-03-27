@@ -1,8 +1,6 @@
 name: Terraform Destroy
 
-on:
-  push:
-   branches: pwp1_infra
+on: workflow_dispatch
 
 jobs:
   terraform-workflow:
