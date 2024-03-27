@@ -1,6 +1,8 @@
 name: Terraform Apply
 
-on: workflow_dispatch
+on:
+  pull_request:
+   branches: pwp1_infra
 
 jobs:
   terraform-workflow: 
