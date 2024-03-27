@@ -2,8 +2,8 @@ resource "azurerm_mysql_server" "pwp_server_mysql" {
   name                         = "pwp-server-mysql"
   location                     = data.azurerm_resource_group.pwp_rg.location
   resource_group_name          = data.azurerm_resource_group.pwp_rg.name
-#   administrator_login          = var.administrator_login
-#   administrator_login_password = var.administrator_login_password
+  administrator_login          = var.administrator_login
+  administrator_login_password = var.administrator_login_password
   version                      = "5.7"
   sku_name                     = "B_Gen5_2"
   storage_mb                   = 5120
