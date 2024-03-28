@@ -48,3 +48,4 @@ jobs:
            -var "administrator_login=${{ secrets.TF_ADMIN_USERNAME }}" \
            -var "administrator_login_password=${{ secrets.TF_ADMIN_PASSWORD }}"
         working-directory: Cloud_infra
+        
